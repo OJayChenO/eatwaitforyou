@@ -1,0 +1,60 @@
+
+<view class='contain'>
+
+  <!-- 头像 -->
+  <view class="avatar_view" bindtap="uploadAva">
+    <image class="avatar" src="{{ avatar }}" mode="aspectFill"></image>
+    <view class="avatar_view2">更换头像</view>
+  </view>
+
+  <!-- 账号 -->
+  <view class='b_view'>
+    <view class='b_item_nicheng'>
+      <text>账号：</text>
+    </view>
+    <view class="b_item_intput">
+      <input class="zhanghao" type="text" disabled value="{{name}}" bindtap="warn"></input>
+    </view>
+  </view>
+  
+  <!-- 昵称 -->
+  <view class='b_view'>
+    <view class='b_item_nicheng'>
+      <text>昵称：</text>
+    </view>
+    <view class='b_item_intput'>
+      <input type="text" maxlength='20' placeholder="20个字符以内" value="{{nickname}}" bindinput="getNickname"></input>
+    </view>
+  </view>
+  <!-- 签名 -->
+  <view class='b_view'>
+    <view class='b_item_nicheng'>
+      <text>签名：</text>
+    </view>
+    <view class='b_item_intput'>
+      <input type="text" maxlength='20' placeholder="20个字符以内" value="{{motto}}" bindinput="getMotto"></input>
+    </view>
+  </view>
+  <!-- 电话 -->
+  <view class='b_view'>
+    <view class='b_item_nicheng'>
+      <text>电话：</text>
+    </view>
+    <view class='b_item_intput'>
+      <input type="text" maxlength='20' placeholder="20个字符以内" value="{{phone}}" bindinput="getPhone"></input>
+    </view>
+  </view>
+  <!-- 地址 -->
+  <view class='b_view'>
+    <view class='b_item_nicheng'>
+      <text>地址：</text>
+    </view>
+    <view class='b_item_intput'>
+      <input type="text" maxlength='-1' placeholder="100个字符以内" value="{{address}}" bindinput="getAddress"></input>
+    </view>
+  </view>
+</view>
+<!-- 注册按钮 -->
+<view class="registerBtn">
+  <van-button color='#4bbccc' size="large" bindtap='saveAlter'>保存修改</van-button>
+</view>

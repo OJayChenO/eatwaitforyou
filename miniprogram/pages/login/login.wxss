@@ -1,0 +1,65 @@
+/* pages/login/login.wxss */
+/* miniprogram/pages/testbg/bg.wxss */
+
+
+.bgPic {
+  height: 100%;
+}
+
+.loginTitle{
+  color: white;
+  position: relative;
+  bottom: 50rpx;
+  left: 150rpx;
+}
+
+.loginPane {
+  background-color: #4bbccc;
+  position: absolute;
+  top: 200rpx;
+  left: 40rpx;
+  padding: 100rpx;
+  border-radius: 20rpx;
+}
+
+.content {
+  height: 70rpx;
+  margin-bottom: 20rpx;
+  background-color: white;
+  border-radius: 15rpx;
+  align-content: center;
+  align-items: center;
+}
+
+.flex{
+  display: flex;
+}
+
+.password,
+.account{
+  padding-left: 10rpx;
+  /* border-bottom: 1rpx solid silver; */
+}
+
+.btn{
+  display: flex;
+  padding-top:30rpx;
+}
+
+.btn button{
+  margin: 0 40rpx;
+  border-radius: 20rpx;
+  color: white;
+  border: 1rpx solid white;
+}
+
+
+.bg {
+  height: 1300rpx;
+  width: 100%;
+}
+
+.bg image{
+  height: 100%;
+  width: 100%;
+}

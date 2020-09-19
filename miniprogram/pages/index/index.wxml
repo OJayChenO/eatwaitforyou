@@ -1,0 +1,101 @@
+<!-- 导航栏 -->
+<view class="nav">
+  <!-- <icon class="iconfont icon-Add"></icon> -->
+  <van-icon name="chat-o" color="white" info="{{ count }}" size="65rpx" bindtap="goMessage"/>
+  <view class='search' bindtap='goSearch'>
+    <!-- <image src='/images/search.png'></image> -->
+    <van-icon name="search" size="50rpx" color="gray" />
+    <input placeholder='搜索菜谱、食材、分类等' disabled></input>
+  </view>
+  <!-- <view class="message">
+    <icon class="iconfont icon-xiaoxi"></icon>
+    <view class="badge">99</view>
+  </view> -->
+  <van-icon name="add-o" color="white" size="65rpx" bind:click="add" />
+</view>
+
+<!-- position="top" -->
+<!-- round -->
+<!-- close-icon="close" -->
+<!-- closeable -->
+<!-- custom-style="height: 20%;" -->
+<van-popup show="{{ show }}" position="top" bind:close="onClose" custom-style="margin-top:120rpx;">
+  <van-button type="primary" icon="column" bind:click="upMenu" size="large">分享菜谱</van-button>
+  <van-button type="warning" icon="photograph" bind:click="upWork" size="large">分享作品</van-button>
+</van-popup>
+
+
+<!--swiper-->
+<view class="swiper_view">
+  <swiper indicator-dots circular autoplay indicator-color="white" indicator-active-color="orange">
+    <view wx:for="{{menu}}" wx:key='index'>
+      <swiper-item>
+        <image src="{{item.menuCover}}" mode="aspectFill" class="swiper-item" data-id="{{ item._id }}" bindtap="toDetail"></image>
+      </swiper-item>
+    </view>
+  </swiper>
+</view>
+
+
+<!-- 标签 -->
+<view class='category'> 
+  <view class='category_view' wx:for='{{ label }}' wx:key='index' data-name="{{ item.text }}" bindtap="toSearch">
+    <image src="{{item.icon}}" class="category_image"></image>
+    <text class="category_text">{{item.text}}</text>
+  </view> 
+</view>
+
+
+<!-- 自定义函数 -->
+<!-- 匹配作品分类 -->
+<wxs module="wxs">
+  function is_exist(a, b) {
+    if (a.length < 1) {
+      return false;
+    }
+    for (var i = 0; i < a.length; ++i) {
+      if (a[i] == b) {
+        return true;
+      }
+    }
+    return false;
+  }
+  module.exports.is_exist = is_exist;
+</wxs>
+
+
+<!--选择切换菜单  与以下  分开写避免了导航固定时页面跳动-->
+<scroll-view scroll-x scroll-with-animation="true" scroll-left="{{ navIndex * 150 - 375 + 150 / 2 }}rpx" class="nav_box">
+  <view class="nav_body nav_body_cur{{navIndex}}" style="width: calc(150rpx * {{scrolls.length}});">
+    <view class='nav_li' wx:for="{{ scrolls }}" wx:key="index" data-name="{{ item }}" data-type='{{index}}' bindtap='changeTitle'>{{ item }}</view>
+  </view>
+</scroll-view>
+<!-- 滑动切换 -->
+<view bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd'>
+  <view class='food_list'>
+    <view class='food_list_item' wx:for="{{ menu }}" wx:key="index" wx:if="{{wxs.is_exist(item.categorys,mcategory)}}" data-name="{{ item.categorys }}">
+      <image class='food_image' mode="aspectFill" src="{{ item.menuCover }}" data-id="{{ item._id }}" bindtap="toDetail"></image>
+      <view class='food_item'>
+        <view class='food_title'>
+          <text class='food_title_text'>{{ item.title }}</text>
+          <!-- <text class='food_title_text' wx:for="{{ item.categorys }}" wx:key="index">{{ item }}</text> -->
+        </view>
+        <view class='headandzan'>
+          <image class='head' src="{{ item.avatar }}" data-id="{{ item.userId }}" bindtap="toUser"></image>
+          <text class='head_name'>{{ item.nickname }}</text>
+          <!-- <image class='zan' src="/images/collect.png"></image> -->
+          <view class='like_view'>
+            <van-icon name="eye-o" color="#4bbccc" />
+            <text class='zan_text'>{{ item.watch }}</text>
+            <!-- <van-icon name="like" color="#ff6262" /> -->
+            <van-icon name="star" color="gold" />
+            <text class='zan_text'>{{ item.collect }}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="no_data_show"></view>
+
+</view>

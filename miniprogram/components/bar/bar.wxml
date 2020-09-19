@@ -1,0 +1,9 @@
+<!--components/bar/bar.wxml-->
+
+<view class='scroll_view'>
+  <scroll-view scroll-x>
+    <view wx:for="{{ bars }}" wx:key="index" class='scroll-item-x'>
+      <view class="{{index==current?'active':''}}" data-id="{{ index }}" data-name="{{ item }}" bindtap="barTap" id="{{ index }}">{{ item }}</view>
+    </view>
+  </scroll-view>
+</view>

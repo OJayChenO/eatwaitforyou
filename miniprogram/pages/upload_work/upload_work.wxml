@@ -1,0 +1,43 @@
+<!--pages/upload_work/upload_work.wxml-->
+<!-- <text>pages/upload_work/upload_work.wxml</text> -->
+
+ <view class='guanliancaipu'>
+    <view class='guanliancaipuming1'>
+      <text>关联菜谱</text>
+    </view>
+    <view class='guanliancaipuming2'>
+      <!-- <text>#香煎土豆（>9省略号）</text> -->
+      <view wx:if='{{ info.name }}'>{{ info.name }}</view>
+      <view wx:else bindtap="relate">点击关联菜谱</view>
+    </view>
+  </view>
+
+
+<view class='contain'>
+  <view class="biaoti">
+    <input placeholder="标题（必填）" placeholder-class="tishi" bindinput="titleInput"></input>
+  </view>
+  <view class='shurukuang'>
+    <textarea placeholder="分享你的作品与感想吧~" bindinput="workInput" >
+    </textarea>
+  </view>
+  <view class="uploadBtn">
+    <icon class="iconfont icon-add-image" bindtap="upPic"></icon>
+  </view>
+  <view class="pic_view">
+    <block wx:for="{{ images }}" wx:key="index">
+      <image src="{{ item }}" class="pic" mode="aspectFill" bindtap="showPic" data-id="{{ index }}" />
+      <van-icon name="close" size="35rpx" data-id="{{ index }}" class="delPicBtn" bindtap="delPic" />
+    </block>
+  </view>
+
+ 
+  
+  <!-- <view>{{ info.name }}</view> -->
+
+  <view class='fabubutton'>
+    <van-button size="large" type="warning" bindtap="release">发布</van-button>
+  </view>
+
+
+</view>

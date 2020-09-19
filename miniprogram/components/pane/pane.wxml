@@ -1,0 +1,3 @@
+<!--components/pane/pane.wxml-->
+
+<bar id="barId" bars="{{ scrolls }}" bind:selectChange="barChange"/>

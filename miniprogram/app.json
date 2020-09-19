@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/message/message",
+    "pages/workshow/workshow",
+    "pages/upload_work/upload_work",
+    "pages/records/records",
+    "pages/login/login",
+    "pages/alter/alter",
+    "pages/register/register",
+    "pages/detail/detail",
+    "pages/me/me",
+    "pages/fans/fans",
+    "pages/follow/follow",
+    "pages/upload_menu/upload_menu",
+    "pages/search/search",
+    "pages/result/result",
+    "pages/user/user",
+    "pages/userFollows/userFollows",
+    "pages/userFans/userFans"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#4bbccc",
+    "navigationBarTitleText": "吃吃等你",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#4bbccc",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/index.png",
+        "selectedIconPath": "images/indexSelected.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "images/me.png",
+        "selectedIconPath": "images/meSelected.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

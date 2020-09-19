@@ -1,0 +1,160 @@
+/* miniprogram/pages/result/result.wxss */
+
+.contain {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 搜索 */
+
+.nav {
+  height: 120rpx;
+  background-color: #4abdcc;
+  display: flex;
+  position: relative;
+  /* border: 1rpx solid silver;  */
+}
+
+.nav icon {
+  margin: 25rpx 45rpx 25rpx 22rpx;
+  /* height: 50rpx; *//* margin: 10rpx 45rpx;  */
+  color: #fff;
+  font-size: 53rpx;
+  /* border: 1rpx solid silver;   */
+  padding: 0 3rpx;
+}
+
+.search {
+  box-sizing: border-box;
+  border-radius: 30rpx;
+  height: 70rpx;
+  padding: 0 20rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 28rpx;
+  width: 480rpx;
+  margin: 22rpx 0rpx;
+  /* border: 1rpx solid silver;  */
+  position: relative;
+}
+
+.search image {
+  height: 36rpx;
+  width: 36rpx;
+  margin-right: 20rpx;
+}
+
+.sousuo {
+  width: 50px;
+  height: 68rpx;
+  line-height: 29px;
+  text-align: center;
+  background-color: rgba(119, 112, 112, 0.89);
+  border-radius: 30rpx;
+  color: white;
+  font-size: 12px;
+  font-weight: 552;
+  position: relative;
+  margin: 22rpx -14rpx;
+  padding: 0rpx 3rpx;
+  left: 30rpx;
+  justify-content: flex-start;
+}
+
+/* scroll分类展示 */
+
+.scroll_view {
+  height: 100rpx;
+  width: 100%;
+  white-space: nowrap;
+  padding: 0rpx 30rpx;
+  background-color: rgba(0, 217, 255, 0.041);
+  border: 50rpx solid silver；;
+}
+
+.scroll-item-x {
+  display: inline-block;
+  width: 170rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 13pt;
+}
+
+/* 作品展示 */
+
+.zuopin_view {
+  height: auto;
+  width: 100%;
+  padding: 10rpx 20rpx;
+}
+
+.item_view {
+  height: 180rpx;
+  width: 710rpx;
+  display: flex;
+  flex-direction: row;
+  padding: 6rpx 0;
+  /* border: 1rpx solid silver; */
+}
+
+.zuopin_tu {
+  height: 180rpx;
+  width: 250rpx;
+  border-radius: 10rpx;
+}
+
+.xiangqing {
+  height: 180rpx;
+  width: 380rpx;
+  padding: 0 20rpx;
+  /* border: 1rpx solid silver;  */
+  display: flex;
+  flex-direction: column;
+}
+
+.xiangqing_1 {
+  height: auto;
+  width: 380rpx;
+  display: flex;
+  flex-direction: column;
+  /* border: 1rpx solid silver; */
+  line-height: 45rpx;
+}
+
+.text_1 {
+  font-size: 35rpx;
+  font-weight: 550;
+}
+
+.text_2 {
+  font-size: 30rpx;
+  color: #aaa7a7;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.text_3 {
+  font-size: 30rpx;
+  color: rgb(78, 78, 78);
+}
+
+.xiangqing_2 {
+  width: 380rpx;
+}
+
+.no_data_show {
+  width: 100%;
+  /* min-height: calc(100vh - 500rpx); */
+  min-height: calc(100vh - 1000rpx);
+  margin: 0 auto;
+  text-align: center;
+  font-size: 36rpx;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

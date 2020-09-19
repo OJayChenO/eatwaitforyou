@@ -1,0 +1,128 @@
+<!--pages/message/message.wxml-->
+
+<view class='contain'>
+  <!-- Collapse 折叠面板 -->
+  <van-collapse accordion value="{{ activeNames }}" bind:change="onChange">
+    <!-- 关注 -->
+    <van-collapse-item name="1">
+      <!-- 标题 -->
+      <view slot="title" class="titleV">
+        <view class='touxiang'>
+          <image class='touxiangtu' src="/images/follow.png"></image>
+        </view>
+        <view class='nicheng'>
+          <text>关注</text>
+        </view>
+        <view class="badge" wx:if="{{ count0 }}">{{ count0 }}</view>
+      </view>
+      <!-- 选项 -->
+      <view wx:for="{{ msg0 }}" wx:key="index">
+        <!-- 关注 -->
+        <view class="collapseItemV_1">
+          <van-image round lazy-load width="100rpx" height="100rpx" src="{{ item.avatar }}" />
+          <view class="collapseItemV_2">
+            <view class="nickname">{{ item.nickname }}</view>
+            <view class="content">{{ item.isFollow?'关注':'取消关注' }}了您</view>
+            <view class="timeV">{{ item.createTime }}</view>
+          </view>
+        </view>
+      </view>
+    </van-collapse-item>
+
+    <!-- 收藏 -->
+    <van-collapse-item name="2">
+      <!-- 标题 -->
+      <view slot="title" class="titleV">
+        <view class='touxiang'>
+          <image class='touxiangtu' src="/images/collect.png"></image>
+        </view>
+        <view class='nicheng'>
+          <text>收藏</text>
+        </view>
+          <view class="badge" wx:if="{{ count1 }}">{{ count1 }}</view>
+      </view>
+      <!-- 选项 -->
+      <view wx:for="{{ msg1 }}" wx:key="index">
+        <!-- 收藏 -->
+        <view class="collapseItemV_1">
+          <van-image round lazy-load width="100rpx" height="100rpx" src="{{ item.avatar }}" />
+          <view class="collapseItemV_2">
+            <view class="nickname">{{ item.nickname }}</view>
+            <view class="content">{{ item.is_collect?'收藏':'取消收藏' }}了您的{{ item.title }}</view>
+            <view class="timeV">{{ item.createTime }}</view>
+          </view>
+        </view>
+      </view>
+
+    </van-collapse-item>
+
+    <!-- 点赞 -->
+    <!-- <van-collapse-item name="3">
+      <view slot="title" class="titleV">
+        <view class='touxiang'>
+          <image class='touxiangtu' src="/images/bg.jpg"></image>
+        </view>
+        <view class='nicheng'>
+          <text>点赞</text>
+        </view>
+        <view class="badge" wx:if="{{ msg2 }}">{{ msg2.length }}</view>
+      </view>
+      <view>提供多样店铺模板，快速搭建网上商城</view>
+    </van-collapse-item> -->
+
+
+    <!-- 评论 -->
+    <van-collapse-item name="4">
+      <view slot="title" class="titleV">
+        <view class='touxiang'>
+          <image class='touxiangtu' src="/images/comment.png"></image>
+        </view>
+        <view class='nicheng'>
+          <text>评论</text>
+        </view>
+        <view class="badge" wx:if="{{ count3 }}">{{ count3 }}</view>
+      </view>
+      <!-- 选项 -->
+      <view wx:for="{{ msg3 }}" wx:key="index">
+        <!-- 收藏 -->
+        <view class="collapseItemV_1">
+          <van-image round lazy-load width="100rpx" height="100rpx" src="{{ item.avatar }}" />
+          <view class="collapseItemV_2">
+            <view class="nickname">{{ item.nickname }}</view>
+            <!-- <view class="content">{{ item.isComment?'评价':'删除评价'' }}了您的{{ item.title }}</view> -->
+            <view class="content" wx:if="{{ item.isComment==true }}">评价了您的{{ item.title }}：</view>
+            <view class="content" wx:if="{{ item.isComment==true }}">{{ item.content }}</view>
+            <view class="content" wx:else>该评论已删除</view>
+            <view class="timeV">{{ item.createTime }}</view>
+          </view>
+        </view>
+      </view>
+    </van-collapse-item>
+
+    <!-- 回复 -->
+    <!-- <van-collapse-item name="5">
+      <view slot="title" class="titleV">
+        <view class='touxiang'>
+          <image class='touxiangtu' src="/images/bg.jpg"></image>
+        </view>
+        <view class='nicheng'>
+          <text>回复</text>
+        </view>
+        <view class="badge" wx:if="{{ msg4 }}">{{ msg4.length }}</view>
+      </view>
+      <view>提供多样店铺模板，快速搭建网上商城</view>
+    </van-collapse-item> -->
+
+
+  </van-collapse>
+
+
+
+  <!--底部消息提示框-->
+  <view class="unread">
+    <text>您有{{ count }}条未读通知</text>
+  </view>
+
+
+
+</view>

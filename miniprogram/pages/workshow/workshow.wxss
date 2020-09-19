@@ -1,0 +1,267 @@
+/* pages/workshow/workshow.wxss */
+
+.contain {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.contain_part {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 图片幻灯片 */
+
+/* ======================================= */
+
+.swiper_view {
+  height: 500rpx;
+}
+
+swiper {
+  background-color: silver;
+  height: 100%;
+}
+
+.swiper-item {
+  height: 100%;
+  width: 100%;
+}
+
+/* ======================================== */
+
+/* 作品信息2（头像+昵称+关注） */
+
+.zpxxbox2_view {
+  height: 80rpx;
+  /* border: 1rpx solid silver; */
+  display: flex;
+  justify-content: row;
+  padding: 20rpx 50rpx;
+}
+
+.touxiangtu {
+  height: 88rpx;
+  width: 88rpx;
+  border-radius: 50rpx;
+}
+
+.nicheng {
+  margin-left: 25rpx;
+  margin-top: 17rpx;
+  width: 300rpx;
+}
+
+/* 第一部分 */
+
+/* 标题 */
+
+.guanliancaiming {
+  /* height: 60rpx; *//* border: 1rpx solid silver; */
+  padding: 30rpx;
+  font-size: 50rpx;
+  /* color: #4bbccc; */
+}
+
+/* 感想 */
+
+.thought {
+  padding: 30rpx;
+  /* color: red; */
+}
+
+/* 第二部分 */
+
+.zuopintu {
+  height: auto;
+  width: 100%;
+}
+
+/* 第三部分 */
+
+.datezanpinlun_view {
+  display: flex;
+  flex-direction: row;
+  font-size: 30rpx;
+  padding: 10rpx 50rpx;
+}
+
+.date_view {
+  margin-top: 20rpx;
+  color: rgb(173, 169, 169);
+}
+
+.zanpinglun_view {
+  display: flex;
+  flex-direction: row;
+  margin-left: 200rpx;
+}
+
+.zanpinglun {
+  display: flex;
+  flex-direction: row;
+}
+
+.zanpinglun1 {
+  display: flex;
+  flex-direction: row;
+  margin-left: 50rpx;
+}
+
+.dianzanshu {
+  margin-left: 10rpx;
+  margin-top: 20rpx;
+  line-height: 30rpx;
+}
+
+/* 第四部分 */
+
+.pinlunshow {
+  padding: 40rpx 50rpx;
+  /* min-height: 200rpx; */
+  /* border: 1rpx solid silver; */
+  /* border-radius: 20rpx; */
+  /* padding: 20rpx 20rpx; */
+  display: flex;
+  flex-direction: column;
+  font-size: 32rpx;
+  line-height: 55rpx;
+  background-color: rgba(192, 192, 192, 0.13);
+}
+
+
+
+.text1 {
+  font-weight: 600;
+}
+
+/* 第四部分 */
+
+.pinlun_view {
+  display: flex;
+  justify-content: row;
+  padding: 20rpx 50rpx;
+  /* border: 1rpx solid silver; */
+}
+
+.touxiangtu1 {
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 50rpx;
+}
+
+.nicheng1 {
+  margin-left: 20rpx;
+  margin-top: 8rpx;
+  width: 555rpx;
+  font-size: 30rpx;
+}
+
+/* 第五部分 */
+
+.jiange {
+  height: 50rpx;
+  background-color: rgba(192, 192, 192, 0.13);
+}
+
+/* 关注按钮 */
+
+.followV {
+  position: absolute;
+  right: 50rpx;
+  border-radius: 20rpx;
+}
+
+/* 评论区 */
+
+/* 评论 */
+
+.comment {
+  border-top: 1rpx solid silver;
+  border-bottom: 1rpx solid silver;
+}
+
+/* 评论顶部 */
+
+.commentTop {
+  margin-left: 40%;
+}
+
+/* 评论输入框 */
+
+.commentInput_view {
+  width: 100%;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  height: 100rpx;
+  background-color: white;
+  align-items: center;
+}
+
+.commentInput {
+  background-color: #cfcfcf;
+  border-radius: 30rpx;
+  padding-left: 20rpx;
+  height: 60rpx;
+}
+
+.comment_view_1 {
+  display: flex;
+  padding: 20rpx;
+  /* border-bottom: 1rpx solid silver; */
+}
+
+.comment_view_2 {
+  padding: 20rpx;
+  position: relative;
+  bottom: 30rpx;
+}
+
+/* 头像 */
+
+.head {
+  /* min-height: 100rpx;
+  min-width: 100rpx; */
+  height: 100rpx;
+  width: 100rpx;
+  border-radius: 50rpx;
+  position: relative;
+  top: 10rpx;
+}
+
+/* 昵称 */
+
+.nickname {
+  min-height: 50rpx;
+  color: gray;
+}
+
+.commentTime {
+  font-size: 28rpx;
+  color: silver;
+}
+
+/* 评论底部 */
+
+.bottom_view {
+  height: 150rpx;
+  /* background-color: red; */
+  z-index: -1;
+}
+
+.comment_view_3 {
+  min-height: 50rpx;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 10rpx;
+}
+
+.dialogText {
+  padding: 30rpx;
+}

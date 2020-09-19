@@ -1,0 +1,102 @@
+/* components/pane/pane.wxss */
+
+.swiper_view {
+  height: 1000rpx;
+  width: 750rpx;
+}
+
+
+/* 作品展示  */
+/* =================== */
+
+.food_list {
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0rpx 10rpx 0rpx 15rpx;
+}
+
+.food_list_item {
+  /* width: 46%; */
+  border: 1rpx solid whitesmoke;
+  /* background-color: whitesmoke; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20rpx;
+  margin: 15rpx 10rpx 0 0;
+}
+
+.food_image {
+  height: 480rpx;
+  width: 100%;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+}
+
+.food_item {
+  height: 118rpx;
+  width: 350rpx;
+  /* border: 5rpx solid silver;  */
+  display: flex;
+  flex-direction: column;
+}
+
+.food_title {
+  height: 38rpx;
+  width: 350rpx;
+  display: flex;
+  /* border: 5rpx solid silver;  */
+}
+
+.food_title_text {
+  font-size: 35rpx;
+  color: rgb(17, 17, 17);
+  padding: 8rpx 10rpx;
+}
+
+.headandzan {
+  height: 77rpx;
+  width: 350rpx;
+  /* border: 5rpx solid silver;   */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  /* padding: 25rpx 10rpx; */
+  margin-top: 25rpx;
+  /* margin-bottom: 30rpx; */
+}
+
+.head {
+  height: 52rpx;
+  width: 52rpx;
+  margin-right: 8rpx;
+  border-radius: 50%;
+}
+
+.head_name {
+  font-size: 30rpx;
+  color: #666;
+  width: 160rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.zan {
+  height: 52rpx;
+  width: 52rpx;
+  margin-right: 8rpx;
+  border-radius: 50%;
+}
+
+.zan_text {
+  font-size: 30rpx;
+  color: #666;
+  /* margin-right: 80rpx; */
+}
+
+/* ========================= */

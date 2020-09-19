@@ -1,0 +1,59 @@
+.contain {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* background-color: #fffff2; */ 
+}
+
+.box_view {
+  display: flex;
+  flex-direction: column;
+}
+
+.zpxxbox2_view {
+  height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: row; */
+  padding: 20rpx 30rpx;
+  border-bottom: 1rpx solid silver;
+}
+
+.touxiangtu {
+  height: 88rpx;
+  width: 88rpx;
+  border-radius: 50rpx;
+}
+
+.nicheng {
+  margin-left: 25rpx;
+  margin-top: 17rpx;
+}
+
+.vanbutton_view {
+  /* margin-left: 280rpx;
+  margin-top: 9rpx; */
+  position: absolute;
+  right: 20rpx; 
+}
+
+.line {
+  height: 3rpx;
+  background: #4bbccc;
+  width: 100%;
+}
+
+
+.no_data_show {
+  width: 100%;
+  /* min-height: calc(100vh - 500rpx); */
+  min-height: calc(100vh - 1000rpx);
+  margin: 0 auto;
+  text-align: center;
+  font-size: 36rpx;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

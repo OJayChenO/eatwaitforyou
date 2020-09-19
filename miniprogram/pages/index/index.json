@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "pane": "/components/pane/pane",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-dialog": "@vant/weapp/dialog/index"
+  }
+}

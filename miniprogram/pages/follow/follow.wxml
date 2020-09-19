@@ -1,0 +1,23 @@
+<view class='contain'>
+  <view class='box_view'>
+
+    <view wx:if="{{ follows.length==0 }}" class="no_data_show">
+      <text>暂无关注列表</text>
+    </view>
+
+    <view class='zpxxbox2_view' wx:for="{{ follows }}" wx:key="index" data-id="{{ item._id }}" bindtap="toUser" >
+      <view class='touxiang'>
+        <image class='touxiangtu' src="{{ item.avatar }}"></image>
+      </view>
+      <view class='nicheng'>
+        <text>{{ item.nickname }}</text>
+      </view>
+      <view class='vanbutton_view'>
+        <!-- <van-button color="#4bbccc" size="small" plain="{{ item.is_follow?'true':'false' }}" data-index="{{ index }}" data-uid="{{ item._id }}" catchtap='toFollow'>{{ item.is_follow?'已关注':'关注' }}</van-button> -->
+        <van-button color="#4bbccc" size="small" plain data-index="{{ index }}" data-uid="{{ item._id }}" catchtap='toFollow' wx:if="{{ item.is_follow }}">已关注</van-button>
+        <van-button color="#4bbccc" size="small" data-index="{{ index }}" data-uid="{{ item._id }}" catchtap='toFollow' wx:else>关注</van-button>
+      </view>
+    </view>
+    <!-- <view class='line'></view> -->
+  </view>
+</view>

@@ -1,0 +1,28 @@
+<!--pages/records/records.wxml-->
+<!-- 浏览记录 -->
+<view wx:if="{{ recordList.length }}">
+  <view class='zuopin_view' wx:for="{{ recordList }}" wx:key="index" bindtap="selectMenu" data-id="{{ item._id }}" data-name="{{ item.title }}">
+    <view class='item_view'>
+      <image class='zuopin_tu' src='{{ item.menuCover }}' mode='aspectFill'></image>
+      <view class='xiangqing'>
+        <view class='xiangqing_1'>
+          <text class='text_1'>{{ item.title }}</text>
+          <view class='text_2'>
+            <text wx:for="{{ item.categorys }}" wx:key="index" wx:for-item="cat">{{ cat }} </text>
+          </view>
+          <view class='text_2'>
+            <text wx:for="{{ item.foods }}" wx:key="index" wx:for-item="foods">{{ foods.food }} </text>
+          </view>
+        </view>
+        <view class='xiangqing_2'>
+          <text class='text_3'>{{ item.watch }}浏览</text>
+          <text class='text_3' space="nbsp">  {{ item.collect }}收藏</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view wx:else class="no_data_show">
+  <text>{{ msg }}</text>
+</view>

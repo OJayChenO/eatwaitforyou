@@ -1,0 +1,97 @@
+@font-face {
+  font-family: 'iconfont'; /* project id 1769074 */
+  src: url('//at.alicdn.com/t/font_1769074_34rcu0puld.eot');
+  src: url('//at.alicdn.com/t/font_1769074_34rcu0puld.eot?#iefix') format('embedded-opentype'),
+         url('//at.alicdn.com/t/font_1769074_34rcu0puld.woff2') format('woff2'),
+         url('//at.alicdn.com/t/font_1769074_34rcu0puld.woff') format('woff'),
+         url('//at.alicdn.com/t/font_1769074_34rcu0puld.ttf') format('truetype'),
+         url('//at.alicdn.com/t/font_1769074_34rcu0puld.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 评论 */
+
+.icon-pinglun:before {
+  content: "\e609";
+  font-size: 50rpx;
+  color: #4bbccc;
+}
+
+/* 点赞 */
+
+.icon-dianzan:before {
+  content: "\e64a";
+  font-size: 50rpx;
+  color: #4bbccc;
+}
+
+/* 点赞1 */
+
+.icon-dianzan1:before {
+  content: "\e668";
+  font-size: 50rpx;
+  color: #4bbccc;
+}
+
+/* 加图 */
+
+.icon-add-image:before {
+  content: "\e641";
+  font-size: 80rpx;
+  color: silver;
+}
+
+/* 搜索 */
+
+.icon-sousuo:before {
+  content: "\e613";
+  font-size: 80rpx;
+  line-height: 68rpx;
+}
+
+/* 上移 */
+
+.icon-custom-update:before {
+  content: "\e602";
+  font-size: 60rpx;
+  color: #3ad487;
+}
+
+/* 叉号 */
+
+.icon-ProgressError:before {
+  content: "\e61a";
+  font-size: 60rpx;
+  color: red;
+}
+
+/* 正方形加号 */
+
+.icon-zhengfangxingjiahao:before {
+  content: "\e69f";
+  font-size: 120rpx;
+  color: silver;
+}
+
+/* 垃圾桶 */
+
+.icon-lajitong:before {
+  content: "\e656";
+  font-size: 60rpx;
+  color: gray;
+}
+
+input {
+  width: 100%;
+}
+
+textarea {
+  width: 100%;
+}

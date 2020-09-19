@@ -1,0 +1,141 @@
+/* pages/upload_work/upload_work.wxss */
+
+.contain {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.biaoti_view {
+  height: auto;
+  font-size: 48rpx;
+  font-weight: 600;
+  padding: 50rpx 50rpx;
+  color: rgb(250, 245, 245);
+}
+
+.divLine {
+  margin-top: 40rpx;
+  /* padding: 0 50rpx; */
+  background: rgb(219, 219, 219);
+  width: 100%;
+  height: 5rpx;
+}
+
+/* .gushi_view{
+  display: flex;
+  height: auto;
+  padding: 0 50rpx;
+  flex-wrap: wrap;
+  min-height: 900rpx;
+} */
+
+/* 标题 */
+
+.title_1 {
+  height: 60rpx;
+  font-size: 50rpx;
+  font-weight: 600;
+  /* padding: 50rpx 50rpx;  */
+  color: gray;
+  margin: 20rpx 50rpx;
+}
+
+/* 输入框 */
+
+.shurukuang {
+  height: 500rpx;
+  /* min-height: 600rpx; */
+  border-top: 5rpx silver solid;
+  border-bottom: 5rpx silver solid;
+  /* border: 1rpx silver solid; */
+  padding: 10rpx 0;
+  margin: 0 50rpx;
+}
+
+/* 标题框 */
+
+.biaoti {
+  margin: 50rpx 50rpx;
+  font-size: 48rpx;
+  /* height: auto; */
+}
+
+/* 提示 */
+
+.tishi {
+  /* line-height: 50rpx; */
+  height: 40rpx;
+  color: rgba(128, 128, 128, 0.459);
+  font-weight: 550;
+  /* font-size: 50rpx; */
+}
+
+/* 上传按钮 */
+
+.uploadBtn {
+  /* position: absolute;*//* bottom: 0;  *//* margin-top: 320rpx; *//* position: fixed; */
+  margin-top: -150rpx;
+  margin-left: 60rpx;
+}
+
+/* 图片区 */
+
+.pic_view {
+  margin: 80rpx 0;
+  margin-left: 40rpx;
+
+}
+
+/* 展示图片 */
+
+.pic {
+  width: 200rpx;
+  height: 200rpx;
+  
+  
+}
+
+/* 删除图片按钮 */
+
+.delPicBtn {
+  color: gainsboro;
+  position: relative;
+  bottom: 165rpx;
+  right: 35rpx;
+}
+
+/* .btn {
+  background: #f4de3b !important;
+  color: #000 !important;
+} */
+
+/* 发布按钮 */
+
+.fabubutton {
+  /* margin-top: 100rpx; */
+  padding: 50rpx 50rpx;
+}
+
+/* 关联菜谱 */
+
+.guanliancaipu {
+  display: flex;
+  flex-direction: row;
+  /* height: 500rpx; */
+  /* min-height: 600rpx; */
+  /* border-top: 5rpx silver solid;
+  border-bottom: 5rpx silver solid; */
+  /* border: 1rpx silver solid; */
+  padding: 30rpx 0;
+  margin: 0 50rpx;
+}
+
+.guanliancaipuming2 {
+  margin-left: 180rpx;
+  /* margin-top: 10rpx; */
+  font-size: 38rpx;
+  /* color: rgb(180, 172, 172); */
+  color: red;
+  text-decoration-line: underline;
+}

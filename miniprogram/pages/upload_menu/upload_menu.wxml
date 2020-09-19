@@ -1,0 +1,146 @@
+<view class='contain'>
+  <!-- 上传封面 -->
+  <view bindtap="upCover">
+    <image wx:if="{{ menuCover }}" class='showimg_view' src="{{ menuCover }}" mode="aspectFill" />
+    <view wx:else class='showimg_view'>
+      <van-icon name="photograph" size="100rpx" />
+      <view class='title_1'>上传封面图片
+        <text class="tishi">（必填）</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 标题 -->
+  <view class='title_view'>
+    <view class='title_1'>
+      <text class="biaoti">标题</text>
+      <text class="tishi">（必填）</text>
+    </view>
+    <view class='inputline_view'>
+      <input type="text" maxlength='40' placeholder="给你的菜谱命个名吧~" bindinput="titleInput"></input>
+    </view>
+  </view>
+
+  
+  <!-- 用料 -->
+  <view class='yongliao_view'>
+    <view class='title_1'>
+      <text class="biaoti">食材</text>
+      <text class="tishi">（至少1项）</text>
+    </view>
+    <view class='inputyongliao_view'>
+      <!-- 首行不要动 -->
+      <view class='shouhang'>
+        <view class='box1'>
+          <text>食材名称</text>
+        </view>
+        <view class='box1'>
+          <text>用量</text>
+        </view>
+      </view>
+
+      <view class='otherhang' wx:for="{{ foodList }}" wx:key="index">
+        <view class='box1'>
+          <input data-id="{{ index }}" value="{{ item.food }}" type="text" maxlength='30' placeholder="如: 土豆" bindinput='foodInput'></input>
+        </view>
+        <view class='box2'>
+          <input data-id="{{ index }}" type="text" maxlength='30' placeholder="如: 1个" value="{{ item.count }}" bindinput='countInput'></input>
+          <van-icon name="close" color="red" size="60rpx" wx:if="{{ showFood }}" data-id="{{ index }}" bindtap="delFood" />
+        </view>
+      </view>
+ 
+    </view>
+    <view class='addupdate_view'>
+      <view bindtap="addFood" class='addyongliao'>
+        <van-icon name="add-o" color="tomato" size="60rpx" />
+        <!-- <view class='addyongliao'>添加用料</view> -->
+        <view style="color:red;">添加食材</view>
+      </view>
+      <view bindtap="showFoodBtn" class='updateyongliao'>
+        <van-icon name="setting-o" color="tomato" size="60rpx" />
+        <!-- <view class='updateyongliao'>调整用料</view> -->
+        <view style="color:red;">调整食材</view>
+      </view>
+    </view>
+  </view>
+  <!-- 做法步骤 -->
+  <view class='step_view'>
+    <view class='title_1'>
+      <text class="biaoti">做法步骤</text>
+      <text class="tishi">（至少3项）</text>
+    </view>
+    <!-- 步骤 -->
+    <view class="stepPos" wx:for="{{ stepList }}" wx:key="index">
+      <text>步骤{{ index+1 }}</text>
+      <!-- 调整按钮 -->
+      <view wx:if="{{ showStep }}" class="set_button">
+        <!-- 上移步骤 -->
+        <icon class="iconfont icon-custom-update" bindtap="upMove" data-id="{{ index }}" />
+        <!-- 删除步骤 -->
+        <icon class="iconfont icon-ProgressError" bindtap="delStep" data-id="{{ index }}" />
+      </view>
+      <view class='inputline_view'>
+        <textarea class='textarea1' auto-height placeholder="描述步骤~" bindinput='stepInput' value="{{ item.desc }}" data-id="{{ index }}"></textarea>
+      </view>
+
+      <view bindtap="upImg" class='pic' data-id="{{ index }}">
+        <image wx:if="{{ item.img }}" src="{{ item.img }}" mode="aspectFill" />
+        <view wx:else class='pic'>
+          <van-icon name="photograph" size="100rpx" />
+          <view class='title_1'>插入图片</view>
+        </view>
+      </view>
+
+    </view>
+
+    <view class='botton_view'>
+      <!-- <view class='warning_view'> -->
+      <van-button icon="plus" type="warning" bind:click='addStep'>新增步骤</van-button>
+      <!-- </view> -->
+      <!-- <view class='danger_view'> -->
+      <van-button icon="setting-o" type="danger" bind:click='showStepBtn'>调整步骤</van-button>
+      <!-- </view> -->
+    </view>
+  </view>
+
+
+
+   <!-- 美食简介 -->
+  <view class='title_view'>
+    <view class='title_1'>美食简介</view>
+    <view class='inputline_view'>
+      <textarea class='textarea1' auto-height placeholder="说说美食背后的故事吧~" bindinput="inputBrief"></textarea>
+    </view>
+  </view>
+
+  <!-- 技术总结 -->
+  <view class='tips_view'>
+    <view class='title_1'>技术总结</view>
+    <view class='inputline_view1'>
+      <textarea bindinput="sumInput" auto-height maxlength="-1" placeholder="给大家留下点心得吧~"></textarea>
+    </view>
+  </view>
+
+  <view class="category_view">
+    <view class='title_cat'>菜谱分类</view>
+    <view class="catInput_view">
+      <!-- bindfocus="categoryFocus" bindblur="categoryBlur" -->
+      <input placeholder="添加分类更容易被搜索到~"  class="catInput" bindinput='categoryInput' bindfocus="categoryFocus" cursor-spacing='10' adjust-position/>
+      <van-icon name="passed" size="60rpx" color="tomato" class = "catIconPos" bindtap="addCategory" wx:if="{{ showCat }}" />
+    </view>
+    <view class='biaoqian_view'>
+      <view class='cai_biaoqian' wx:for='{{ categorys }}' wx:key='index'>
+        <text>{{ item }}</text>
+        <van-icon name="cross" bindtap="delCategory" class="delCategoryBtn" data-id="{{ index }}" />
+      </view>
+    </view>
+
+  </view>
+
+ 
+
+  <view class="submitBtn">
+    <van-button size="large" type="danger" bind:click='upload'>发布</van-button>
+  </view>
+
+</view>

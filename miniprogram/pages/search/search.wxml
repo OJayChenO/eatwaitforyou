@@ -1,0 +1,47 @@
+<view class='contain'>
+
+  <!-- 搜索 -->
+  <view class="nav">
+    <!-- <icon class="iconfont icon-back-arrow" bindtap="goBack"></icon> -->
+    <view class="search">
+      <!-- <image src='/images/search.png'></image> -->
+      <van-icon name="search" size="50rpx" color="gray" />
+      <input placeholder='搜索菜谱、食材、分类等' auto-focus bindinput="searchInput"></input>
+    </view>
+    <icon class="iconfont icon-sousuo" bindtap="toSearch"></icon>
+  </view>
+
+
+  <!-- 历史记录 -->
+  <view class='cailike' wx:if="{{ historys }}">
+    <view class='cai_title'>
+      <text class='cai_title_text'>历史记录</text>
+      <!-- <button type="warn" size="mini" bindtap="clearHistorys" class="clearBtn">清空历史</button> -->
+      <icon class="iconfont icon-lajitong" bindtap="clearHistorys" ></icon>
+    </view>
+    <view class='biaoqian_view'>
+      <view class='cai_biaoqian' wx:for='{{ historys }}' wx:key='index'>
+        <text data-name="{{ item }}" class='biaoqian_text' bindtap="clickSearch">{{ item }}</text>
+      </view>
+    </view>
+  </view>
+
+
+  <!-- 猜你喜欢 -->
+  <view class='cailike'>
+    <view class='cai_title'>
+      <text class='cai_title_text'>热门搜索</text>
+    </view>
+    <!-- <view class='biaoqian_view' wx:for='{{biaoqian}}' wx:key='biaoqian_{{index}}'> -->
+    <view class='biaoqian_view'> 
+      <view class='cai_biaoqian' wx:for='{{ biaoqian }}' wx:key='index'>
+        <!-- <view class='cai_biaoqian'> -->
+        <text class='biaoqian_text' data-name="{{ item }}" bindtap="clickSearch">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+
+
+
+</view>

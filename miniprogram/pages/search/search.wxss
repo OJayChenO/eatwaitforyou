@@ -1,0 +1,110 @@
+/* miniprogram/pages/search/search.wxss */
+
+.contain{
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+/* 搜索 */
+.nav{
+  height: 120rpx;
+  background-color: #4abdcc;
+  display: flex;
+  position: relative;
+  /* border: 1rpx solid silver;  */
+}
+.nav icon{
+  margin:25rpx 45rpx 25rpx 22rpx ; 
+  color: #fff;
+  font-size: 53rpx;
+  padding: 0 3rpx;
+}
+.search{
+  box-sizing: border-box;
+  border-radius: 30rpx; 
+  height: 70rpx;
+  padding: 0 20rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 28rpx;
+  /* width: 480rpx; */
+  width: 100%;
+  margin: 22rpx 20rpx;
+  /* border: 1rpx solid silver;  */
+  position: relative;
+}
+.search image {
+  height: 36rpx;
+  width: 36rpx;
+  margin-right: 20rpx;
+}
+
+.sousuo{
+  width: 50px;
+  height: 68rpx;
+  line-height: 29px;  
+  text-align: center; 
+  background-color:rgba(119, 112, 112, 0.89);
+  border-radius: 30rpx; 
+  color: white;
+  font-size: 12px;
+  font-weight: 552; 
+  position: relative; 
+  margin: 22rpx -14rpx;
+  padding: 0rpx 3rpx; 
+  left: 30rpx;  
+  justify-content: flex-start;
+}
+
+/* 猜你喜欢 */
+.cailike{
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+.cai_title{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18rpx;
+  margin-top: 30rpx;
+}
+.cai_title_text{
+  font-size: 50rpx;
+  font-weight: bold;
+  color: rgb(75, 74, 74);
+}
+
+.clearBtn{
+  position: absolute;
+  right: 30rpx;
+}
+
+.biaoqian_view{
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0rpx 10rpx 0rpx 40rpx;
+  
+  /* padding: 0rpx 40rpx;   */
+}
+.cai_biaoqian{
+  width: auto;
+  height: 50rpx;
+  /* line-height:20px;   */
+  text-align: center;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  background-color: rgb(245, 242, 240);
+  border-radius: 60rpx; 
+  color: rgb(119, 116, 116); 
+  font-size: 33rpx;
+  padding: 10rpx 30rpx;
+  margin-top: 15rpx;
+  margin-right: 18rpx;
+} 
+ 

@@ -1,0 +1,84 @@
+<!--miniprogram/pages/user/user.wxml-->
+
+ 
+<view class="header">
+  <image src="{{ user_info.cover }}" class="cover" mode="aspectFill" ></image>
+  <view class="mask"></view> 
+  <view class="user">
+    <view class="info">
+      <view class="follower">
+        <view class="count" catchtap="toFansList">{{ user_info.fans.length }}</view>
+        粉丝
+      </view>
+      <image class="avatar" mode="aspectFill" src="{{ user_info.avatar }}" bindtap="showAvatar"></image>
+      <view class="following">
+        <view class="count" catchtap="toFollowList">{{ user_info.follow.length }}</view>
+        关注
+      </view>
+    </view>
+    <view class="motto">{{ user_info.motto }}</view>
+    <view class="name">{{ user_info.nickname }}</view>
+    <block wx:if="{{ !self }}">
+      <!-- <button hover-class="loginBtnHover" class="loginBtn" wx:if="{{ is_follow }}" bindtap="follow" >已关注</button>
+      <button hover-class="loginBtnHover" class="loginBtn" wx:else bindtap="follow" >关注</button> -->
+      <button hover-class="loginBtnHover" class="loginBtn" bindtap="follow">{{ is_follow?'已关注':'关注' }}</button> 
+    </block>
+    <!-- <button bindtap="chat">私信</button> -->
+  </view>
+</view>
+
+ 
+<!-- 用户作品 -->
+<view class="work_view">
+  <view class="workTitle">用户作品</view>
+  <scroll-view scroll-x class="scroll_view">
+    <view class='food_list'>
+      <view class='food_list_item' wx:for="{{ menu }}" wx:key="index">
+        <image class='food_image' mode="aspectFill" src="{{ item.menuCover }}" data-id="{{ item._id }}" bindtap="toDetail"></image>
+        <view class='food_item'>
+          <view class='food_title'>
+            <text class='food_title_text'>{{ item.title }}</text>
+          </view>
+          <view class='headandzan'>
+            <image class='head' src="{{ item.avatar }}" data-id="{{ item.userId }}" bindtap="toUser"></image>
+            <text class='head_name'>{{ item.nickname }}</text>
+            <view class='like_view'>
+              <van-icon name="eye-o" color="#4bbccc" />
+              <text class='zan_text'>{{ item.watch }}</text>
+              <van-icon name="star" color="gold" />
+              <text class='zan_text'>{{ item.collect }}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+
+<!-- 用户收藏 -->
+<view class="work_view">
+  <view class="workTitle">用户收藏</view>
+  <scroll-view scroll-x class="scroll_view">
+    <view class='food_list'>
+      <view class='food_list_item' wx:for="{{ collects }}" wx:key="index">
+        <image class='food_image' mode="aspectFill" src="{{ item.menuCover }}" data-id="{{ item._id }}" bindtap="toDetail"></image> 
+        <view class='food_item'>
+          <view class='food_title'>
+            <text class='food_title_text'>{{ item.title }}</text>
+          </view>
+          <view class='headandzan'>
+            <image class='head' src="{{ item.avatar }}" data-id="{{ item.userId }}" bindtap="toUser"></image>
+            <text class='head_name'>{{ item.nickname }}</text>
+            <view class='like_view'>
+              <van-icon name="eye-o" color="#4bbccc" />
+              <text class='zan_text'>{{ item.watch }}</text>
+              <van-icon name="star" color="gold" />
+              <text class='zan_text'>{{ item.collect }}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

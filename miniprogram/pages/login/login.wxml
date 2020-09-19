@@ -1,0 +1,26 @@
+<!--pages/login/login.wxml-->
+
+<view class="bg">
+  <image src="/images/bg.jpg" mode="aspectFill"></image>
+  <view class="loginPane">
+    <view class="loginTitle">欢迎登录</view>
+    <form bindsubmit="loginform">
+      <view class="content flex"> 
+        <!-- <icon class="iconfont icon-ProgressError"></icon> -->
+        <van-icon size="60rpx" name="friends" color="#4bbccc" />
+        <input class="account" placeholder="请输入账号" name="account" bindinput="accountInput"></input>
+      </view>
+      <view class="content flex">
+        <!-- <icon class="iconfont icon-custom-update"></icon> -->
+        <van-icon size="60rpx" name="lock" color="#4bbccc" />
+        <input class="password" password placeholder="请输入密码" name="password"></input>
+      </view>
+      <view class="btn">
+        <button  plain form-type="submit">登录</button>
+        <button  plain bindtap="toRegister">注册</button>
+      </view>
+     
+    </form>               
+  </view>
+
+</view>

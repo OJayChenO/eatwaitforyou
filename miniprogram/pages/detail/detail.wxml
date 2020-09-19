@@ -1,0 +1,250 @@
+<view class='contain'>
+
+  <!-- 作品图片 -->
+  <view class='zuopintupian_view'>
+    <image class='tupian' src='{{ detail.menuCover }}' mode='aspectFill' bindtap="showCover"></image>
+  </view>
+ 
+  <!-- 作品信息1（标题+浏览+收藏） -->
+  <view class='zpxxbox1_view'>
+    <text class='biaoti'>{{ detail.title }}</text>
+    <view class='anther'>
+      <text class='an_text1'>{{ detail.watch }}浏览</text>
+      <text class='an_text2'>{{ detail.collect }}收藏</text>
+    </view>
+  </view>
+
+  <!-- 作品信息2（头像+昵称+关注） -->
+  <view class='zpxxbox2_view'>
+    <view class='touxiang'>
+      <image class='touxiangtu' src="{{ detail.avatar }}" data-id="{{ detail.userId }}" bindtap="toUser"></image>
+    </view>
+    <view class='nicheng'>
+      <text>{{ detail.nickname }}</text>
+    </view>
+    <view>
+      <van-button type="warning" size="small" plain="{{ is_follow }}" bindtap="toFollow" wx:if='{{ !self }}'>{{ is_follow?'已关注':'关注' }}</van-button>
+    </view>
+  </view>
+
+  <!-- 作品介绍 -->
+  <view class='kaichangbai_view' wx:if="{{ detail.brief }}">
+    <text>{{ detail.brief }}</text>
+    <view class='divLine'></view>
+  </view>
+
+  <!-- 作品信息3_用料 -->
+  <view class='zpxxbox3a_biew'>
+    <view class='title_1'>食材
+      <view class="count">{{ detail.foods.length }}</view>
+    </view>
+    <view class='inputyongliao_view'>
+      <view class='shouhang'>
+        <view class='box1'>
+          <text>食材名称</text>
+        </view>
+        <view class='box1'>
+          <text>用量</text>
+        </view>
+      </view>
+      <view class='otherhang' wx:for="{{ detail.foods }}" wx:key="index">
+        <view class='box1'>
+          <text>{{ item.food }}</text>
+        </view>
+        <view class='box2'>
+          <text>{{ item.count }}</text>
+          <van-icon name="cross" color="red" size="60rpx" wx:if="{{ showFood }}" data-id="{{ index }}" bindtap="delFood" />
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 作品信息3_步骤 -->
+  <view class='zpxxbox3b_view'>
+    <view class='title_1'>步骤
+      <!-- <van-icon info="{{ detail.steps.length }}" class="iconPos" /> -->
+      <view class="count">{{ detail.steps.length }}</view>
+    </view>
+    <view class='tuhezi' wx:for='{{ detail.steps }}' wx:key='index'>
+      <text class="stepTitle">步骤{{ index+1 }}</text>
+      <text class='word'>{{ item.desc }}</text>
+      <image mode='aspectFill' class='pic' wx:if="{{ item.img }}" src="{{ item.img }}" data-index="{{ index }}" bindtap="showImg"></image>
+    </view>
+  </view>
+
+  <!-- 技术总结 -->
+  <view class='tip_view' wx:if="{{ detail.sum }}">
+    <view class='title_1'>技术总结</view>
+    <text>{{ detail.sum }}</text>
+    <view class='divLine'></view>
+  </view>
+
+  <!-- 删除作品 -->
+  <van-button size="large" type="danger" wx:if="{{ self }}" data-id="{{ detail._id }}" bindtap="delMy">删除作品</van-button>
+
+  <!-- 分享作品 -->
+  <view class='sharecp_view'>
+    <view class='addmore'>
+      <view class='title_1'>相关作品</view>
+      <!-- <view class='more'>更多>></view> -->
+      <view class='more'>{{ workList.length }}个作品</view>
+    </view>
+  </view>
+
+  <!-- 作品展示 -->
+  <view class="work_view">
+    <scroll-view scroll-x class="scroll_view">
+      <view class='food_list'>
+        <view class='food_list_item' wx:for="{{ workList }}" wx:key="index">
+          <image class='food_image' mode="aspectFill" src="{{ item.imgs[0] }}" data-id="{{ item._id }}" bindtap="toDetail"></image>
+          <view class='food_item'>
+            <!-- 作品标题 -->
+            <view class='food_title'>
+              <text class='food_title_text'>{{ item.title }}</text>
+            </view>
+
+
+            <!-- 点赞评论 -->
+            <view class='headandzan'>
+              <view class='like_view'>
+
+                <!-- 点赞 -->
+                <view class='like_view_2'>
+                  <van-icon name="like" color="#FF3333" size="45rpx" />
+                  <text class='zan_text'>{{ item.like }}</text>
+                </view>
+
+                <!-- 留言 -->
+                <view class='like_view_2'>
+                  <van-icon name="chat-o" color="#4bbccc" size="45rpx" />
+                  <text class='zan_text' wx:if="{{ item.comments.length }}">{{ item.comments.length }}</text>
+                  <text class='zan_text' wx:else>0</text>
+                </view>
+
+              </view>
+            </view>
+
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+
+  <!-- <view class='food_list'>
+    <scroll-view scroll-x>
+      <view class='scroll-item-x'>
+        <view class='twobox'>
+          <view class='shareimg_view'>
+            <image class='sharejoyimg' src="/images/food/1.jpg"></image>
+          </view>
+          <view class='shareinfo'>
+            <view class='simg_view'>
+              <image class='simg' src="/images/touxiang.jpg"></image>
+            </view>
+            <text calss='sname'>昵称</text>
+
+            <view class='szan'>
+              <icon class="iconfont icon-zan:before"></icon>
+            </view>
+          </view> 
+        </view>
+      </view>
+    </scroll-view>
+  </view> -->
+
+
+  <!-- 评论弹框 -->
+  <van-popup show="{{ show }}" bind:close="onClose" position="bottom" custom-style="height: 60%;">
+    <view wx:if="{{ detail.comments }}" class="commentTop">
+      <view>{{ detail.comments.length }}条评论</view>
+    </view>
+    <view wx:else>暂无评论</view>
+    <!-- 评论 -->
+    <view wx:for="{{ detail.comments }}" wx:key='index' wx:for-item="com" class="comment">
+      <!-- <view>{{ com.id }}</view> -->
+      <!-- <view>{{ com.userId }}</view> -->
+      <view class="comment_view_1">
+        <image class='head' src="{{ com.avatar }}" catchtap="toUser" data-id="{{ com.userId }}" />
+        <view class="comment_view_2">
+          <view class="nickname">{{ com.nickname }}</view>
+          <view>{{ com.comment }}</view>
+          <view class="commentTime">{{ com.commentTime }}</view>
+        </view>
+        <!-- 图标位置 -->
+        <view class="comment_view_3">
+          <van-icon name="close" size="60rpx" color="tomato" wx:if="{{ myInfo._id == com.userId }}" bindtap="delComment" data-id="{{ com.id }}" />
+          <van-icon name="comment-o" size="60rpx" color="gold" bindtap="reply" data-cid="{{ com.id }}" data-uid="{{ com.userId }}" data-name="{{ com.nickname }}" />
+        </view>
+      </view>
+      <!-- 回复 -->
+      <!-- <view>回复：</view> -->
+      <view wx:for="{{ com.replys }}" wx:key="index" wx:for-item="rep">
+        <!-- <view>{{ rep.id }}</view> -->
+        <!-- <view>{{ rep.userId }}</view> -->
+        <view class="comment_view_1">
+          <image class='head' src="{{ rep.avatar }}" catchtap="toUser" data-id="{{ rep.userId }}" />
+          <view class="comment_view_2">
+            <view class="nickname">{{ rep.nickname }}</view>
+            <view>{{ rep.reply }}</view>
+            <view class="commentTime">{{ rep.replyTime }}</view>
+          </view>
+          <!-- 图标位置 -->
+          <view class="comment_view_3">
+            <van-icon name="close" size="60rpx" color="tomato" wx:if="{{ rep.userId==myInfo._id }}" class="delReplyBtn" catchtap="delReply" data-cid="{{ com.id }}" data-rid="{{ rep.id }}" />
+            <van-icon name="comment-o" size="60rpx" color="gold" class="delReplyBtn" bindtap="answer" data-name="{{ rep.nickname }}" data-cid="{{ com.id }}" />
+          </view>
+        </view>
+
+      </view>
+
+    </view>
+
+    <view class="commentInput_view">
+      <input class="commentInput" placeholder="与作者交流一下吧~" bindinput="inputComment" cursor-spacing='10' adjust-position></input>
+      <van-icon name="passed" color="#4bbccc" size="60rpx" wx:if="{{ comment }}" bind:click="toComment" />
+    </view>
+
+    <view class="bottom_view"></view>
+
+  </van-popup>
+
+  <van-dialog use-slot show="{{ showDialog }}" show-cancel-button confirm-button-text='提交' bind:confirm="replySubmit" transition title="回复@{{ username }}">
+    <textarea placeholder="输入回复..." bindinput="replyInput" class="dialogText" />
+  </van-dialog>
+
+
+  <!-- 功能栏 -->
+  <view class='gongnenglan_view'>
+    <view class='tishi' bindtap="toCollect">
+      <view>
+        <van-icon name="star" color="{{ is_collect?'gold':'white' }}" info="{{ detail.collect }}" />
+      </view>
+      <view class='word1'>
+        <text style="color:{{ is_collect?'gold':'white' }};">收藏</text>
+      </view>
+    </view>
+    <view class='tishi' bindtap="showComment">
+      <view>
+        <van-icon name="comment" wx:if='{{ detail.comments }}' info="{{ detail.comments.length }}" />
+        <van-icon name="comment" wx:else info="0" />
+      </view>
+      <view class='word1'>
+        <text>评论区</text>
+      </view>
+    </view>
+    <view class='tishi' bindtap="upWork" data-id="{{ detail._id }}" data-name="{{ detail.title }}">
+      <view>
+        <van-icon color="white" name="photograph" />
+      </view>
+      <view class='word1'>
+        <text>晒作品</text>
+      </view>
+    </view>
+  </view>
+
+
+
+  <view class="tab_view"></view>
+
+</view>
